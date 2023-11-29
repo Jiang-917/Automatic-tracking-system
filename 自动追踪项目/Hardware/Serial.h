@@ -9,6 +9,7 @@ extern uint8_t Serial_RxPacket[];
 
 /*服务于文本模式，HEX模式需注释*/
 //extern char Serial_RxPacket[];
+//extern uint8_t Serial_RxFlag;
 
 /*通用函数*/
 void Serial_Init(void);                                                              //USART初始化函数

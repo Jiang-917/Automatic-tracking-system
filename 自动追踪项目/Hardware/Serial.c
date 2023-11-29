@@ -146,14 +146,13 @@ void USART1_IRQHandler(void)                                                    
 			{
 				RxState = 1;
 				pRxPacket = 0;
-
 			}
 		}
 		else if(RxState == 1)                                                        //接收数据
 		{
 			Serial_RxPacket[pRxPacket] = RxData;
 			pRxPacket++;
-			if(pRxPacket >= 4)
+			if(pRxPacket >= 2)
 			{
 				RxState = 2;
 			}
@@ -170,7 +169,7 @@ void USART1_IRQHandler(void)                                                    
 	}
 }
 
-///*中断函数***中断状态机***文本模式****\r \n***/
+/*中断函数***中断状态机***文本模式****\r \n***/
 //void USART1_IRQHandler(void)                                                       //接收数据包
 //{
 //	static uint8_t RxState = 0;                                                      //状态变量
@@ -186,7 +185,6 @@ void USART1_IRQHandler(void)                                                    
 //			{
 //				RxState = 1;
 //				pRxPacket = 0;
-
 //			}
 //		}
 //		else if(RxState == 1)                                                        //接收数据
@@ -213,3 +211,14 @@ void USART1_IRQHandler(void)                                                    
 //		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
 //	}
 //}
+
+/*UART*//*示例*/
+//		if (Serial_GetRxFlag() == 1)	
+//		{
+//			OLED_ShowHexNum(1, 6, Serial_RxPacket[0], 3);	
+//			OLED_ShowHexNum(2, 6, Serial_RxPacket[1], 3);
+//			
+//			Servo_180_Angle(Serial_RxPacket[0]);
+//			Servo_270_Angle(Serial_RxPacket[1]);
+//			
+//		}

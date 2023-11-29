@@ -13,7 +13,7 @@ void Key_Init(void)                                                             
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
-	GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource4);
+//	GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource4);
 	GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource2);
 	
 	EXTI_InitTypeDef EXTI_InitStructure;
@@ -32,11 +32,11 @@ void Key_Init(void)                                                             
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
 	NVIC_Init(&NVIC_InitStructure);
 	
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
-	NVIC_Init(&NVIC_InitStructure);
+//	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;
+//	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+//	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+//	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+//	NVIC_Init(&NVIC_InitStructure);
 }
 /******************
 	中断函数定义
@@ -53,16 +53,16 @@ void EXTI2_IRQHandler(void)                                                     
 	EXTI_ClearITPendingBit(EXTI_Line2);
 }
 
-void EXTI4_IRQHandler(void)                                                          //按下复位，释放回位
-{
-	if (EXTI_GetITStatus(EXTI_Line4) == SET)
-	{
-		Servo_180_Angle(90);		                    
-		Servo_270_Angle(135);		
-		while(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4) == RESET)
-		{
-			
-		}		
-	}
-	EXTI_ClearITPendingBit(EXTI_Line4);
-}
+//void EXTI4_IRQHandler(void)                                                          //按下复位，释放回位
+//{
+//	if (EXTI_GetITStatus(EXTI_Line4) == SET)
+//	{
+//		Servo_180_Angle(90);		                    
+//		Servo_270_Angle(135);		
+//		while(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4) == RESET)
+//		{
+//			
+//		}		
+//	}
+//	EXTI_ClearITPendingBit(EXTI_Line4);
+//}
