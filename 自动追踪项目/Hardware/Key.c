@@ -57,8 +57,8 @@ void EXTI2_IRQHandler(void)                                                     
 //{
 //	if (EXTI_GetITStatus(EXTI_Line4) == SET)
 //	{
-//		Servo_180_Angle(90);		                    
-//		Servo_270_Angle(135);		
+//		Servo_180_Angle(1500);		                    
+//		Servo_270_Angle(1500);		
 //		while(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4) == RESET)
 //		{
 //			

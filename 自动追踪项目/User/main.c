@@ -5,6 +5,7 @@
 #include "stupid.h"
 #include "Serial.h"
 #include <string.h>
+#include "PWM.h"
 
 /************接线定义*************
 *		180度舵机PWM————A0
@@ -21,8 +22,11 @@ int main(void)
 	Servo_Init();                                                                    //舵机初始化
 	Serial_Init();                                                                   //串口初始化
 		
-	Servo_180_Angle(90);                                                             //复位到原点		                    
-	Servo_270_Angle(135);
+//	Servo_180_Angle(90);                                                             //复位到原点		                    
+//	Servo_270_Angle(135);
+	
+	PWM_SetCompare1(1500);
+	PWM_SetCompare2(1500);
 
 	while (1)	
 	{		
