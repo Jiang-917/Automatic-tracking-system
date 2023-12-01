@@ -6,22 +6,22 @@ void Servo_Init(void)                                                           
 	PWM_Init();
 }
 
-//void Servo_180_Angle(float Angle)                                                    //180°舵机角度给予
-//{																					 //PWM:1333-1667
-//	PWM_SetCompare1(Angle / 180 * 2000 + 500);
-//}
-
-//void Servo_270_Angle(float Angle)                                                    //270°舵机角度给予
-//{																					 //PWM:1388-1612
-//	PWM_SetCompare2(Angle / 270 * 2000 + 500);
-//}
-
-void Servo_180_Angle(float Angle)                                                    //180°舵机角度给予
+void Servo_R_180_Angle(float Angle)                                                  //180°舵机角度给予
 {																					 //PWM:1333-1667
 	PWM_SetCompare1(Angle);
 }
 
-void Servo_270_Angle(float Angle)                                                    //270°舵机角度给予
+void Servo_R_270_Angle(float Angle)                                                  //270°舵机角度给予
 {																					 //PWM:1388-1612
 	PWM_SetCompare2(Angle);
+}
+
+void Servo_G_180_Angle(float Angle)                                                  //180°舵机角度给予
+{																					 //PWM:1333-1667
+	PWM_SetCompare3(Angle);
+}
+
+void Servo_G_270_Angle(float Angle)                                                  //270°舵机角度给予
+{																					 //PWM:1388-1612
+	PWM_SetCompare4(Angle);
 }

@@ -1,67 +1,37 @@
 /********************
 第一、二问
 ********************/
-
 #include "stm32f10x.h"                  
-#include "Servo.h"                  
-#include "Delay.h"                  
+#include "Servo.h"            
+#include "Delay.h"
+#include "stupid.h"
 
-//void Stupid_Init_1(void)
-//{
-//	uint8_t i,j;
-//	
-//	for(j = 148;j >= 119;j--)                                                        //从左上向右上移动
-//	{
-//		Servo_180_Angle(76);		              
-//		Servo_270_Angle(j);							
-//		Delay_ms(20);
-//	}
-//	for(i = 76;i <= 103;i++)                                                         //从右上到右下移动
-//	{
-//		Servo_180_Angle(i);		                  
-//		Servo_270_Angle(119);                     
-//		Delay_ms(20);
-//	}
-//	for(j = 119;j <= 150;j++)                                                        //从右下向左下移动
-//	{
-//		Servo_180_Angle(103);		              
-//		Servo_270_Angle(j);                       
-//		Delay_ms(20);
-//	}
-//	for(i = 103;i >= 76 ;i--)                                                        //从左下向左上移动
-//	{
-//		Servo_180_Angle(i);		                  
-//		Servo_270_Angle(150);                     
-//		Delay_ms(20);
-//	}
-//}
-
-void Stupid_Init_1(void)
+void Stupid_Init(void)
 {
 	uint16_t i,j;
 	
-	for(j = 1612;j >= 1388;j--)                                                      //从左上向右上移动
+	for(j = y1;j >= y2;j--)                                                      //从左上向右上移动
 	{
-		Servo_180_Angle(1333);		              
-		Servo_270_Angle(j);							
+		Servo_R_180_Angle(x1);		              
+		Servo_R_270_Angle(j);							
 		Delay_ms(30);
 	}
-	for(i = 1333;i <= 1667;i++)                                                      //从右上到右下移动
+	for(i = x1;i <= x2;i++)                                                      //从右上到右下移动
 	{
-		Servo_180_Angle(i);		                  
-		Servo_270_Angle(1388);                     
+		Servo_R_180_Angle(i);		                  
+		Servo_R_270_Angle(y2);                     
 		Delay_ms(30);
 	}
-	for(j = 1388;j <= 1612;j++)                                                      //从右下向左下移动
+	for(j = y2;j <= y1;j++)                                                      //从右下向左下移动
 	{
-		Servo_180_Angle(1667);		              
-		Servo_270_Angle(j);                       
+		Servo_R_180_Angle(x2);		              
+		Servo_R_270_Angle(j);                       
 		Delay_ms(30);
 	}
-	for(i = 1667;i >= 1333 ;i--)                                                     //从左下向左上移动
+	for(i = x2;i >= x1 ;i--)                                                     //从左下向左上移动
 	{
-		Servo_180_Angle(i);		                  
-		Servo_270_Angle(1612);                     
+		Servo_R_180_Angle(i);		                  
+		Servo_R_270_Angle(y1);                     
 		Delay_ms(30);
 	}
 }
